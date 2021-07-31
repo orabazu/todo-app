@@ -4,3 +4,5 @@ import { App } from 'views/App';
 import './index.scss';
 
 ReactDOM.render(<App />, document.getElementById('output'));
+//disable es-lint
+module.hot?.accept();
