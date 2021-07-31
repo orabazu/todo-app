@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const tailwindcss = require('tailwindcss')
+const autoprefixer = require('autoprefixer') // help tailwindcss to work
 
 module.exports = {
   entry: './src/index.tsx',
@@ -67,13 +69,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.s(a|c)ss$/,
+        test: /\.(css|scss|sass)$/,
         exclude: /\.module.(s(a|c)ss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
+          'sass-loader',
           {
-            loader: 'sass-loader',
+            loader: 'postcss-loader', // postcss loader needed for tailwindcss
+            options: {
+              postcssOptions: {
+                ident: 'postcss',
+                plugins: [tailwindcss, autoprefixer],
+              },
+            },
           },
         ],
       },
