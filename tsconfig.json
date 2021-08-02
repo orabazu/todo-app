@@ -42,6 +42,9 @@
       "actions/*": [
         "src/actions/*"
       ],
+      "store/*": [
+        "src/store/*"
+      ],
     },
     "typeRoots": [
       "./src/types",

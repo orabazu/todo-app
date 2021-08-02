@@ -1,4 +1,4 @@
-const API_URL = 'https://rickandmortyapi.com/api';
+const API_URL = 'https://jsonplaceholder.typicode.com';
 class Api {
   async get<T>(url: string, params: any): Promise<T> {
     let response;

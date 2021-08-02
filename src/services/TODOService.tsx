@@ -8,8 +8,8 @@ export type TODOResponse = {
 };
 
 class TODOService {
-  getTODOS(params?: string): Promise<TODOResponse> {
-    return api.get<TODOResponse>('posts', params);
+  getTODOS(params?: string): Promise<TODOResponse[]> {
+    return api.get<TODOResponse[]>('posts', params);
   }
 }
 

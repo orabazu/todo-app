@@ -25,6 +25,8 @@ module.exports = {
       assets: path.resolve(__dirname, './src/assets/'),
       services: path.resolve(__dirname, './src/services/'),
       actions: path.resolve(__dirname, './src/actions/'),
+      lib: path.resolve(__dirname, './src/lib/'),
+      store: path.resolve(__dirname, './src/store/'),
     },
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },

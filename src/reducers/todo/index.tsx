@@ -6,7 +6,7 @@ const initialState: TODOStateType = {
   todosLoding: false,
 };
 
-const todo = (state = initialState, action: TODOAction) => {
+const todo = (state = initialState, action: TODOAction): TODOStateType => {
   switch (action.type) {
     case TODO_ACTIONS.GET_TODOS_BEGIN:
       return {

@@ -1,30 +1,32 @@
 import { TODOResponse } from 'services/TODOService';
 import { todoService } from 'services/TODOService';
-import { TODO_ACTIONS, TODODispatch } from './types';
+import { TODO_ACTIONS, TODODispatch, TODOAction } from './types';
 
-export const getTODOSBegin = () => ({
+export const getTODOSBegin = (): TODOAction => ({
   type: TODO_ACTIONS.GET_TODOS_BEGIN,
 });
 
-export const getTODOSSuccess = (data: TODOResponse[]) => ({
+export const getTODOSSuccess = (data: TODOResponse[]): TODOAction => ({
   type: TODO_ACTIONS.GET_TODOS_SUCCESS,
   payload: { data },
 });
 
-export const getTODOSFailure = (error: Error) => ({
+export const getTODOSFailure = (error: Error): TODOAction => ({
   type: TODO_ACTIONS.GET_TODOS_FAILURE,
   payload: { error },
 });
 
-export const getTODOS = () => async (dispatch: TODODispatch) => {
-  dispatch(getTODOSBegin());
-  try {
-    const res = await todoService.getTODOS();
-    console.log(res);
-    // dispatch(getTODOSSuccess(res.data));
-    return 'success';
-  } catch (error) {
-    dispatch(getTODOSFailure(error));
-    return 'err';
-  }
-};
+export const getTODOS =
+  () =>
+  async (dispatch: TODODispatch): Promise<void> => {
+    dispatch(getTODOSBegin());
+    try {
+      const res = await todoService.getTODOS('userId=1');
+      console.log(res);
+      dispatch(getTODOSSuccess(res));
+      // return 'success';
+    } catch (error) {
+      dispatch(getTODOSFailure(error));
+      // return 'err';
+    }
+  };
