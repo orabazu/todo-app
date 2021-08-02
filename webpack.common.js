@@ -20,9 +20,7 @@ module.exports = {
       const: path.resolve(__dirname, './src/const/'),
       components: path.resolve(__dirname, './src/components/'),
       views: path.resolve(__dirname, './src/views/'),
-      contexts: path.resolve(__dirname, './src/contexts/'),
       reducers: path.resolve(__dirname, './src/reducers/'),
-      managers: path.resolve(__dirname, './src/managers/'),
       hooks: path.resolve(__dirname, './src/hooks/'),
       assets: path.resolve(__dirname, './src/assets/'),
     },
@@ -87,7 +85,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|ico)$/,
+        test: /\.(jpe?g|png|gif|ico|svg)$/,
         type: 'asset/resource',
       },
     ],
