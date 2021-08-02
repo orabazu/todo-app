@@ -36,6 +36,12 @@
       "lib/*": [
         "src/lib/*"
       ],
+      "services/*": [
+        "src/services/*"
+      ],
+      "actions/*": [
+        "src/actions/*"
+      ],
     },
     "typeRoots": [
       "./src/types",
