@@ -18,6 +18,16 @@ Todo app with react, redux, and tailwindcss. Custom scss and scss modules are en
 - views -> might be used with react-router if need be
 - .vscode -> .vscode settings i prefer
 
+#### Scripts
+
+- build -> get production build
+- start -> get development build
+- lint -> lint ts files
+- lint:fix -> lint ts files and fix auto fixable problems
+- prettier:base -> run prettier against all ts, tsx files
+- prettier:check -> list differences
+- prettier:write -> run prettier against all ts, tsx and overwrite
+
 ### Installation
 
 ```
