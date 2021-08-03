@@ -3,6 +3,8 @@
 <img width="1665" alt="Screen Shot 2021-08-03 at 15 54 48" src="https://user-images.githubusercontent.com/812622/128019012-9bbc1c40-e4bf-48cf-a056-04ec4a304873.png">
 Todo app with react, redux, and tailwindcss. Custom scss and scss modules are enabled by webpack as well.
 
+live link -> https://zhunor-todo.surge.sh/
+
 ### Project Structure
 
 #### Directory Tree
