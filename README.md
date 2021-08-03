@@ -7,6 +7,11 @@ live link -> https://zhunor-todo.surge.sh/
 
 ### Project Structure
 
+#### Notes on async calls 
+
+Only in the main list for `getTODOS` action I added some real async dispatch with `redux-thunk`, I faked the async behaviour elsewhere.
+
+
 #### Directory Tree
 
 - actions -> redux actions
