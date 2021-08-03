@@ -19,7 +19,7 @@ Todo app with react, redux, and tailwindcss. Custom scss and scss modules are en
 - views -> might be used with react-router if need be
 - .vscode -> .vscode settings i prefer
 
-#### Scripts
+#### Scripts
 
 - build -> get production build
 - start -> get development build
