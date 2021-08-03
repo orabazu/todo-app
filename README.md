@@ -52,7 +52,7 @@ notes: docker is set up only for development purposes, for now do not use it for
 docker compose up
 ```
 
-### Build
+### Build
 
 Generate all js/css bundles
 
@@ -60,7 +60,7 @@ Generate all js/css bundles
 yarn build
 ```
 
-#### some notes about webpack
+#### some notes about webpack
 
 - dev and prod configs are provided
 - scss and scss.module loaders are added anyway for further needs and @teamsupercell/typings-for-css-modules-loader is used to get auto-generated types
