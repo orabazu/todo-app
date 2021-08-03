@@ -1,9 +1,10 @@
-import { TODOAction, TODO_ACTIONS } from 'actions/TODO/types';
+import { TODOAction, TODO_ACTIONS } from 'actions/todo/types';
 import { TODOStateType } from './types';
 
 const initialState: TODOStateType = {
   todos: [],
   todosLoding: false,
+  todoLoading: false,
 };
 
 const todo = (state = initialState, action: TODOAction): TODOStateType => {
@@ -17,7 +18,7 @@ const todo = (state = initialState, action: TODOAction): TODOStateType => {
       return {
         ...state,
         todosLoding: false,
-        todos: action.payload.data,
+        todos: action.payload.todoList,
       };
     case TODO_ACTIONS.GET_TODOS_FAILURE:
       return {
@@ -60,6 +61,24 @@ const todo = (state = initialState, action: TODOAction): TODOStateType => {
         todos,
       };
     }
+    case TODO_ACTIONS.SET_ADD_TODO_BEGIN:
+      return {
+        ...state,
+        todoLoading: true,
+      };
+    case TODO_ACTIONS.SET_ADD_TODO_SUCCESS: {
+      const todos = [action.payload.todo, ...state.todos];
+      return {
+        ...state,
+        todos,
+        todoLoading: false,
+      };
+    }
+    case TODO_ACTIONS.SET_ADD_TODO_FAILURE:
+      return {
+        ...state,
+        todoLoading: false,
+      };
     default:
       return state;
   }

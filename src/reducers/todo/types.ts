@@ -1,6 +1,7 @@
-import { TODOResponse } from 'services/TODOService';
+import { TodoResponse } from 'services/TodoService';
 
 export type TODOStateType = {
-  todos: TODOResponse[];
+  todos: TodoResponse[];
   todosLoding: boolean;
+  todoLoading: boolean;
 };

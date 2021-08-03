@@ -10,17 +10,21 @@ export enum ButtonColor {
 type Props = {
   onClick?: () => void;
   color?: ButtonColor;
+  isDisabled?: boolean;
 };
 
 const Button: React.FC<Props> = ({
   children,
   onClick,
   color = ButtonColor.Primary,
+  isDisabled,
 }): JSX.Element => {
+  const disableClass = isDisabled ? 'disabled:opacity-50' : '';
   return (
     <button
       onClick={onClick}
-      className={`flex-no-shrink w-32 p-2 ml-4 p-2 border-2 rounded hover:text-white ${color}`}
+      className={`flex-no-shrink w-32 p-2 ml-4 p-2 border-2 rounded hover:text-white ${color} ${disableClass}`}
+      disabled={isDisabled}
     >
       {children}
     </button>

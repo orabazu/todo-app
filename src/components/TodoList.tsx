@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import TodoItem from 'components/TodoItem';
-import { getTODOS } from 'actions/TODO';
+import { getTODOS } from 'actions/todo';
 import { TODOStateType } from 'reducers/TODO/types';
 
 type Props = {};
@@ -18,12 +18,7 @@ export const TodoList: React.FC<Props> = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(getTODOS());
-    console.log(todos, 'todos');
   }, []);
-
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setTempTitle(event.target.value);
-  // };
 
   return (
     <>

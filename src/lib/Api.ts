@@ -1,5 +1,6 @@
-const API_URL = 'https://jsonplaceholder.typicode.com';
+import { API_URL } from 'const/api';
 class Api {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async get<T>(url: string, params: any): Promise<T> {
     let response;
     const startTime = new Date().getTime();
@@ -7,14 +8,12 @@ class Api {
     try {
       response = await fetch(`${API_URL}/${url}${queryParams}`);
     } catch (e) {
-      /* eslint-disable-next-line no-throw-literal */
       throw { status: 0, message: e };
     }
 
     if (!response.ok) {
       reportError('GET', url, response, startTime);
       const data = await getJSONOrThrow(response);
-      // eslint-disable-next-line no-throw-literal
       throw { status: response.status, ...data };
     }
     return await getJSONOrThrow(response);
@@ -24,6 +23,7 @@ class Api {
 function reportError(method: string, url: string, response: Response, startTime: number) {
   const duration = new Date().getTime() - startTime;
   const pathname = new URL(url, window.location.origin).pathname;
+  // Ideally log sentry or other logger here
   console.error({ pathname, method, duration, status: response.status });
 }
 

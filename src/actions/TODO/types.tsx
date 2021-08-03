@@ -1,4 +1,4 @@
-import { TODOResponse } from 'src/services/TODOService';
+import { TodoResponse } from 'services/TodoService';
 
 export enum TODO_ACTIONS {
   GET_TODOS_BEGIN,
@@ -7,12 +7,17 @@ export enum TODO_ACTIONS {
   SET_DELETE_TODO,
   SET_DONE_TODO,
   SET_EDIT_TODO,
+  SET_ADD_TODO_BEGIN,
+  SET_ADD_TODO_SUCCESS,
+  SET_ADD_TODO_FAILURE,
+  SET_ADD_TODO,
 }
 
 export type TODOAction = {
   type: TODO_ACTIONS;
   payload?: {
-    data?: TODOResponse[];
+    todoList?: TodoResponse[];
+    todo?: TodoResponse;
     error?: Error;
     id?: number;
     title?: string;
