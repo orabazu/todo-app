@@ -1,7 +1,7 @@
 import { setAddTodo } from 'actions/todo';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { TODOStateType } from 'reducers/TODO/types';
+import { TODOStateType } from 'reducers/todo/types';
 
 import Button from './Button';
 
@@ -24,6 +24,13 @@ const AddTodo: React.FC<Props> = (): JSX.Element => {
     setNewTodo(event.target.value);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      dispatch(setAddTodo(newTodo));
+      setNewTodo('');
+    }
+  };
+
   return (
     <div className="flex my-4">
       <input
@@ -31,6 +38,7 @@ const AddTodo: React.FC<Props> = (): JSX.Element => {
         placeholder="Add Todo"
         value={newTodo}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
       <Button onClick={onClick} isDisabled={todoLoading || !newTodo.length}>
         Add

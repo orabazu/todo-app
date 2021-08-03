@@ -71,7 +71,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(css|scss|sass)$/,
+        test: /\.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
         use: [
           MiniCssExtractPlugin.loader,

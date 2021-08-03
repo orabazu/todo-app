@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import TodoItem from 'components/TodoItem';
 import { getTODOS } from 'actions/todo';
-import { TODOStateType } from 'reducers/TODO/types';
+import { TODOStateType } from 'reducers/todo/types';
 
 type Props = {};
 type Store = {
