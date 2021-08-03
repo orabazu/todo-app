@@ -6,6 +6,7 @@ export enum TODO_ACTIONS {
   GET_TODOS_FAILURE,
   SET_DELETE_TODO,
   SET_DONE_TODO,
+  SET_EDIT_TODO,
 }
 
 export type TODOAction = {
@@ -14,6 +15,7 @@ export type TODOAction = {
     data?: TODOResponse[];
     error?: Error;
     id?: number;
+    title?: string;
   };
 };
 

@@ -48,6 +48,18 @@ const todo = (state = initialState, action: TODOAction): TODOStateType => {
         todos,
       };
     }
+    case TODO_ACTIONS.SET_EDIT_TODO: {
+      const todos = state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          todo.title = action.payload.title;
+        }
+        return todo;
+      });
+      return {
+        ...state,
+        todos,
+      };
+    }
     default:
       return state;
   }

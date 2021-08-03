@@ -40,3 +40,8 @@ export const setDoneTodo = (id: number): TODOAction => ({
   type: TODO_ACTIONS.SET_DONE_TODO,
   payload: { id },
 });
+
+export const setEditTodo = (id: number, title: string): TODOAction => ({
+  type: TODO_ACTIONS.SET_EDIT_TODO,
+  payload: { id, title },
+});

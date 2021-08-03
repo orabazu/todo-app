@@ -1,31 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 
 import AddTodo from 'components/AddTodo';
-import TodoItem from 'components/TodoItem';
-import { getTODOS } from 'actions/TODO';
-import { TODOStateType } from 'reducers/TODO/types';
+import { TodoList } from 'components/TodoList';
 
 type Props = {};
-type Store = {
-  todo: TODOStateType;
-};
 
 export const App: React.FC<Props> = (): JSX.Element => {
-  const todos = useSelector((state: Store) => state.todo.todos);
-  const todosLoding = useSelector((state: Store) => state.todo.todosLoding);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTODOS());
-    console.log(todos, 'todos');
-  }, []);
-
-  const renderTodos = () =>
-    todos?.map((todo) => (
-      <TodoItem key={todo.id} title={todo.title} id={todo.id} isDone={todo.isDone}></TodoItem>
-    ));
-
   return (
     <div className="min-h-screen h-full w-full bg-green-200 font-sans bg-hero bg-no-repeat bg-bottom bg-40%">
       <div className="p-8">
@@ -35,7 +15,7 @@ export const App: React.FC<Props> = (): JSX.Element => {
       <div className="items-center justify-center flex">
         <div className="bg-white bg-opacity-75  rounded shadow p-6 m-4 w-full lg:w-10/12">
           <AddTodo></AddTodo>
-          {todosLoding ? 'Loading ...' : renderTodos()}
+          <TodoList />
         </div>
       </div>
     </div>
