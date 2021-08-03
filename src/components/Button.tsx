@@ -8,7 +8,7 @@ export enum ButtonColor {
 }
 
 type Props = {
-  onClick?: () => {};
+  onClick?: () => void;
   color?: ButtonColor;
 };
 

@@ -21,12 +21,10 @@ export const App: React.FC<Props> = (): JSX.Element => {
     console.log(todos, 'todos');
   }, []);
 
-  useEffect(() => {
-    console.log(todos, 'todos');
-  }, [todos]);
-
   const renderTodos = () =>
-    todos?.map((todo) => <TodoItem key={todo.id} data={todo.title}></TodoItem>);
+    todos?.map((todo) => (
+      <TodoItem key={todo.id} title={todo.title} id={todo.id} isDone={todo.isDone}></TodoItem>
+    ));
 
   return (
     <div className="min-h-screen h-full w-full bg-green-200 font-sans bg-hero bg-no-repeat bg-bottom bg-40%">

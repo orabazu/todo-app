@@ -30,3 +30,13 @@ export const getTODOS =
       // return 'err';
     }
   };
+
+export const setDeleteTodo = (id: number): TODOAction => ({
+  type: TODO_ACTIONS.SET_DELETE_TODO,
+  payload: { id },
+});
+
+export const setDoneTodo = (id: number): TODOAction => ({
+  type: TODO_ACTIONS.SET_DONE_TODO,
+  payload: { id },
+});

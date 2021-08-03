@@ -24,6 +24,30 @@ const todo = (state = initialState, action: TODOAction): TODOStateType => {
         ...state,
         todosLoding: false,
       };
+    case TODO_ACTIONS.SET_DELETE_TODO: {
+      const todos = state.todos.reduce((acc, curr) => {
+        if (curr.id !== action.payload.id) {
+          acc.push(curr);
+        }
+        return acc;
+      }, []);
+      return {
+        ...state,
+        todos,
+      };
+    }
+    case TODO_ACTIONS.SET_DONE_TODO: {
+      const todos = state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          todo.isDone = !todo.isDone;
+        }
+        return todo;
+      });
+      return {
+        ...state,
+        todos,
+      };
+    }
     default:
       return state;
   }

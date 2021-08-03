@@ -1,17 +1,31 @@
+import { setDeleteTodo, setDoneTodo } from 'actions/TODO';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import Button, { ButtonColor } from './Button';
 
 type Props = {
-  data: string;
+  title: string;
+  id: number;
+  isDone: boolean;
 };
 
-const TodoItem: React.FC<Props> = ({ data }): JSX.Element => {
+const TodoItem: React.FC<Props> = ({ title, id, isDone }): JSX.Element => {
+  const doneClass = !isDone ? '' : 'line-through text-green-500';
+  const dispatch = useDispatch();
+  const onRemove = () => {
+    dispatch(setDeleteTodo(id));
+  };
+  const onDone = () => {
+    dispatch(setDoneTodo(id));
+  };
   return (
     <div className="flex mb-4 items-center">
-      <p className="w-full text-grey-darkest text-xl">{data}</p>
-      <Button>Done</Button>
+      <p className={`w-full text-grey-darkest text-xl ${doneClass}`}>{title}</p>
+      {isDone ? <Button onClick={onDone}>Not Done</Button> : <Button onClick={onDone}>Done</Button>}
 
-      <Button color={ButtonColor.Warning}>Remove</Button>
+      <Button color={ButtonColor.Warning} onClick={onRemove}>
+        Remove
+      </Button>
     </div>
   );
 

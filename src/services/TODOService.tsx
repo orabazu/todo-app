@@ -5,7 +5,7 @@ export type TODOResponse = {
   title: string;
   body: string;
   userId: number;
-};
+} & { isDone?: boolean };
 
 class TODOService {
   getTODOS(params?: string): Promise<TODOResponse[]> {
